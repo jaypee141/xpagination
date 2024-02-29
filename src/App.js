@@ -11,16 +11,21 @@ function App() {
 
   useEffect(()=>{
     const fetchData = async(start) => {
-      try{
-        let response=await axios("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json");
+      // try{
+        axios.get("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json")
+        .then((response)=> {
+          setLength(response.data.length);
+          let jp = response.data.slice(start, start+10);
+          setUser(jp);
+          setPage(Math.floor(start/10) +1);
+        })
         // setUser(response.data);
-        setLength(response.data.length);
-        let jp = response.data.slice(start, start+10);
-        setUser(jp);
-        setPage(Math.floor(start/10) +1);
-      }catch(e){
-        console.error("failed to fetch data", e);
-      }
+        // setLength(response.data.length);
+        // let jp = response.data.slice(start, start+10);
+        // setUser(jp);
+        // setPage(Math.floor(start/10) +1);
+      .catch(()=> alert("failed to fetch data"));
+      // }
     }
     fetchData(start);
   }, [start]);
