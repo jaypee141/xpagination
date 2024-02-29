@@ -1,0 +1,23 @@
+.table{
+  width: 100%;
+}
+.heading{
+  background-color: forestgreen;
+  color: white;
+}
+.App h1{
+  text-align: center;
+}
+.tbody {
+  background-color: rgb(245, 243, 243);
+}
+.button button{
+  margin: 20px 5px;
+
+  background-color: forestgreen;
+  color: white;
+}
+.button{
+  display: flex;
+  justify-content: center;
+}
