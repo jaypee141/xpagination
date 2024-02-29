@@ -19,7 +19,7 @@ function App() {
         setUser(jp);
         setPage(Math.floor(start/10) +1);
       }catch(e){
-        console.error("failed to fetch data");
+        console.error("failed to fetch data", e);
       }
     }
     fetchData(start);
