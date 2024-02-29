@@ -7,7 +7,7 @@ function App() {
   const [user, setUser] = useState([]);
   const [start, setStart] = useState(0);
   const [page, setPage] = useState(1);
-  const [length, setLength] = useState(0);
+  const [length, setLength] = useState(1);
 
   useEffect(()=>{
     const fetchData = async(start) => {
@@ -15,7 +15,7 @@ function App() {
         let response=await axios("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json");
         // setUser(response.data);
         setLength(response.data.length);
-        let jp = response.data.slice(start, start+11);
+        let jp = response.data.slice(start, start+10);
         setUser(jp);
         setPage(Math.floor(start/10) +1);
       }catch(e){
